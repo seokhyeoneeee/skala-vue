@@ -1,6 +1,7 @@
 <script setup>
 import WeatherMockup from './components/exercise/WeatherMockup.vue'
 import WeatherComposition from './components/exercise/WeatherComposition.vue'
+import WeatherParent from './components/exercise/WeatherParent.vue'
 </script>
 
 <template>
@@ -13,6 +14,11 @@ import WeatherComposition from './components/exercise/WeatherComposition.vue'
     <h1>⛅ 과제 2: 날씨 (Composition API)</h1>
     <hr />
     <WeatherComposition />
+  </div>
+  <div class="app-container">
+    <h1>⛅ 과제 3: 날씨 (컴포넌트)</h1>
+    <hr />
+    <WeatherParent />
   </div>
 </template>
 
