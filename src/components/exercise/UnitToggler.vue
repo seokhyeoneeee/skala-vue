@@ -10,7 +10,7 @@ const configStore = useConfigStore()
       날씨단위:
       <strong>{{ configStore.unit === 'celsius' ? '섭씨(℃)' : '화씨(℉)' }}</strong>
     </span>
-    <button type="button" class="unit-button" @click="configStore.toggleUnit">단위변경</button>
+    <el-button type="primary" @click="configStore.toggleUnit">단위변경</el-button>
   </div>
 </template>
 
@@ -23,18 +23,4 @@ const configStore = useConfigStore()
   text-align: center;
 }
 
-.unit-button {
-  width: auto;
-  padding: 8px 12px;
-  color: #ffffff;
-  font-weight: 700;
-  background: #536d91;
-  border: 0;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.unit-button:hover {
-  background: #405a7d;
-}
 </style>
