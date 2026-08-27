@@ -9,7 +9,7 @@ const router = useRouter()
     <h3>📖 날씨 대시보드 이용 안내</h3>
 
     <el-steps direction="vertical" :active="3" finish-status="success">
-      <el-step title="도시 검색" description="검색창에 서울, 수원, 부산 또는 제주를 입력합니다." />
+      <el-step title="도시 검색" description="원하는 국내외 도시 이름을 입력하고 검색합니다." />
       <el-step title="날씨 확인" description="실시간 기온과 날씨 상태를 확인합니다." />
       <el-step title="상세 정보" description="상세보기에서 습도와 풍속을 확인합니다." />
     </el-steps>

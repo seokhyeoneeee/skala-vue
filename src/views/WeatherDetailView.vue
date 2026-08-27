@@ -1,7 +1,7 @@
 <script setup>
 import { computed, ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { fetchWeatherById } from '../services/weatherApi'
+import { fetchWeatherByCity, fetchWeatherById } from '../services/weatherApi'
 import { useConfigStore } from '../stores/configStore'
 
 const route = useRoute()
@@ -24,7 +24,10 @@ onMounted(async () => {
   isLoading.value = true
 
   try {
-    cityData.value = await fetchWeatherById(route.params.cityId)
+    const cityQuery = String(route.query.city || '').trim()
+    cityData.value = cityQuery
+      ? await fetchWeatherByCity(cityQuery)
+      : await fetchWeatherById(route.params.cityId)
   } catch (error) {
     console.error('상세 날씨 API 호출 실패:', error)
     errorMessage.value =
@@ -43,7 +46,7 @@ onMounted(async () => {
     <p v-if="isLoading">실시간 상세 날씨 정보를 불러오고 있습니다.</p>
     <p v-else-if="errorMessage" class="error-message">{{ errorMessage }}</p>
     <div v-else-if="cityData" class="info-card">
-      <h4>📍 지정 지역: {{ cityData.name }}</h4>
+      <h4>{{ cityData.emoji || '📍' }} 지정 지역: {{ cityData.name }}</h4>
       <p>
         실시간 기온: <strong>{{ displayTemp }}{{ configStore.unitSymbol }}</strong>
       </p>
@@ -62,12 +65,14 @@ onMounted(async () => {
 <style scoped>
 .detail-container {
   margin: 0 auto;
+  color: #2c3e50;
   background: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 .info-card {
+  color: #2c3e50;
   background: #f1f2f6;
   padding: 15px;
   border-radius: 6px;

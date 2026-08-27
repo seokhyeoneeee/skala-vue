@@ -32,7 +32,7 @@ const displayTemp = computed(() => {
   >
     <div class="card-content">
       <div>
-        <h4>{{ cityItem.name }} ({{ cityItem.status }})</h4>
+        <h4>{{ cityItem.emoji || '🌡️' }} {{ cityItem.name }} ({{ cityItem.status }})</h4>
         <p>현재 기온: {{ displayTemp }}{{ configStore.unitSymbol }}</p>
         <el-tag v-if="cityItem.temp >= 25" type="danger" size="large" effect="dark">
           🔥 더움
@@ -66,6 +66,8 @@ const displayTemp = computed(() => {
 
 h4 {
   margin: 0 0 8px;
+  white-space: nowrap;
+  word-break: keep-all;
 }
 
 p {

@@ -15,13 +15,15 @@ const handleGoHome = () => {
 
     <div class="description-box">
       <p>
-        본 앱은 <strong>Vue 3</strong> 및 <strong>Vue Router 4</strong> 기반 제작된 실습용 기상 관측
-        대시보드 시스템입니다.
+        본 서비스는 <strong>OpenWeather API</strong>를 활용해 국내외 도시의 현재 날씨를
+        실시간으로 조회하는 날씨 대시보드입니다.
       </p>
       <ul>
-        <li><code>components/exercise/</code> 폴더 내부의 독립 부품 연동</li>
-        <li>클라이언트 사이드 라우팅을 통한 새로고침 없는 화면 전환</li>
-        <li>URL 쿼리 스트링 매핑을 활용한 실시간 검색 상태 동기화</li>
+        <li>서울·수원·부산·제주의 현재 날씨를 Axios 병렬 요청으로 한 번에 조회</li>
+        <li>한글 또는 영문 도시명을 검색해 새로운 국내외 도시 날씨 카드 추가</li>
+        <li>Geocoding API를 이용해 검색한 도시의 좌표와 정확한 관측 지역 확인</li>
+        <li>현재 기온, 날씨 상태, 습도, 풍속 등 실시간 상세 정보 제공</li>
+        <li>섭씨·화씨 단위 변경과 관심 도시 즐겨찾기 기능 제공</li>
       </ul>
     </div>
 
